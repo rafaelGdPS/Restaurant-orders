@@ -45,8 +45,8 @@ def test_dish():
     assert repr(dish1) == "Dish('Lasanha', R$70.00)"
     assert hash(dish1) == hash("Dish('Lasanha', R$70.00)")
     assert dish1 == dish2
-
+    value_error = "Dish price must be greater then zero."
     with pytest.raises(TypeError, match="Dish price must be float."):
         Dish("pão com ovo", "dez reais")
-    with pytest.raises(ValueError, match="Dish price must be greater then zero."):
+    with pytest.raises(ValueError, match=value_error):
         Dish("coxinha velha", 0.00)
